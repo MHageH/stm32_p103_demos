@@ -183,7 +183,8 @@ uart_echo_int
 
 
 
-FOLDER STRUCTURE
+## FOLDER STRUCTURE
+```
 demos
     Contains the demo source code.
 eclipse
@@ -215,14 +216,16 @@ libraries/STM32F10x_StdPeriph_Driver
     STMicro's STM32F10x_StdPeriph_Lib.zip V3.5.0
 openocd
     Contains STM32 openocd configuration scripts.
+```
 
 
-
-USING THE MAKEFILE
+## USING THE MAKEFILE
 The makefile contains targets that can be used to compile, run, and debug the
 demo programs.
 
-Compiling:
+
+### Compiling:
+```
 To compile one of the programs, run "make <program>_ALL"
 e.g. "make blink_flash_ALL".  This will produce three files in the <program>
 folder:
@@ -233,8 +236,9 @@ folder:
     main.list - A listing containing the entire program.  Can be examined to
                 get disassembly, symbols, exact memory addresses, etc..
 Running "make" or "make all" runs "make <program>_ALL" for all of the programs.
-
-Programming a Microcontroller:
+```
+### Programming a Microcontroller:
+```
 To program/debug a microcontroller, you will need a programmer that is compatible
 with openocd, and you will need openocd installed.
 
@@ -246,8 +250,10 @@ Olimex ARM-USB-TINYH programmer.  This can be overriden by changing the
 OPENOCD_INTERFACE variable (or declaring an environment variable of the same
 name).  Look inside the makefile for an example.  Once the microntroller is
 programmed, the program will automatically start executing.
+```
 
-Running in QEMU:
+### Running in QEMU:
+```
 See the DEPENDENCIES section for more details.  To run <program> in QEMU, run
     make <program>_QEMURUN
 
@@ -266,23 +272,27 @@ targets:
                             understand why, but maybe I'm doing something
                             wrong.
     <program>_QEMURUN_TEL - Attaches UART2 to a telnet server at port 7777.
+```
 
-Debugging a Microcontroller:
+### Debugging a Microcontroller:
+```
 To debug <program>, first program it into the Microcontroller.  Then
 run "make DBG".  This will start openocd which
 creates a GDB server at port 3333.  You can connect to it with GDB, or a GDB
 based debugger (I use Eclipse).
+```
 
-Debugging in QEMU:
+### Debugging in QEMU:
+```
 To debug <program> in QEMU, run "make <program>_QEMUDBG".  This will start QEMU
 in debug mode, which sets up a GDB server at port 3333.  Note that this is the
 same port used for debugging a microcontroller - once you have GDB set up for
 debugging the Microcontroller, it should work interchangeably with QEMU and
 vice-versa. 
-
-
+```
 
 REFERENCES
+```
 ST Microelectronics STM32 website
 	www.st.com/stm32
 	Specifically, see:
@@ -342,7 +352,7 @@ Jeroen Hermans "OpenOCD and Eclipse"
 
 OpenHardware "Olimex ARM-USB-OCD"
     http://www.openhardware.net/Embedded_ARM/OpenOCD_JTAG/
-    
+``` 
 	
 	
 Written by Andre Beckus
